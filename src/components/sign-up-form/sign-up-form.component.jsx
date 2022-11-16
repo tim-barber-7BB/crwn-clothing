@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
-import './sign-up.styles.scss';
+import './sign-up-form.styles.scss';
 
 const defaultFormFields = {
   displayName: '',
@@ -14,8 +14,6 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  console.log(formFields);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -40,7 +38,6 @@ const SignUpForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(event);
     setFormFields({ ...formFields, [name]: value });
   }
 
