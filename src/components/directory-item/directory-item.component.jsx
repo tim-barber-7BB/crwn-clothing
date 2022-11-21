@@ -3,15 +3,13 @@ import { BackgroundImage, Body, DirectoryItemContainer } from "./directory-item.
 
 const DirectoryItem = ({ category }) => {
   const { title, imageUrl } = category;
-  const navitage = useNavigate();
+  const navigate = useNavigate();
 
-  const onNavigateHandler = () => navitage(`shop/${title}`);
+  const onNavigateHandler = () => navigate(`shop/${title}`);
 
   return (
     <DirectoryItemContainer onClick={onNavigateHandler}>
-      <BackgroundImage
-        imageUrl={imageUrl}
-      />
+      <BackgroundImage imageUrl={imageUrl} />
       <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>
