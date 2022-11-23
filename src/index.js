@@ -5,13 +5,16 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { store } from './store/store';
+import { store, persistor } from './store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     </BrowserRouter>
 );
